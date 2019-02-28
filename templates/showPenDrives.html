@@ -1,0 +1,52 @@
+F{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	{% endif %}	    
+{% endwith %}
+{% if 'username' in session %}
+<button type="button" class="btn btn-warning" style="margin: 5px 0px 5px 25px;"><a href="{{url_for('addPenDriveDetails',cppname=pdpdcc.name)}}" style="color:yellow;"><strong>Add New PenDrive</strong></a></button>
+
+{% endif %}
+<div class="row" style="margin: 10px;">
+{% for tbe in pdcm %}
+
+	<div class="col-sm-4 text-center">
+		<div class="panel panel-primary" style="background-color:tomato;border:none">
+			<div class="panel-heading" style="background-color:orange;border-radius:0px">
+				<h4>{{ tbe.name }}</h4>
+			</div>
+			<div class="panel-body text-center" style="background-color:Lightblue;border-radius:0px">
+				<table>
+					<table>
+					<tr><th>name</th><td>:</td><td><h5>{{ tbe.name }}</h5></td></tr>
+					<tr><th>drives_number</th><td>:</td><td><h5>{{ tbe.drives_number }}</h5></td></tr>
+					<tr><th>item_capacity</th><td>:</td><td><h5>{{ tbe.item_capacity}}</h5></td></tr>
+					<tr><th>drive_name</th><td>:</td><td><h5>{{ tbe.drive_name}}</h5></td></tr>
+					<tr><th>item_color</th><td>:</td><td><h5>{{ tbe.item_color }}</h5></td></tr>
+					<tr><th>transferspeed</th><td>:</td><td><h5>{{ tbe.transferspeed }}</h5></td></tr>
+					<tr><th>item_cost</th><td>:</td><td><h5>{{ tbe.item_cost }}</h5></td></tr>
+					<tr><th>warranty</th><td>:</td><td><h5>{{ tbe.warranty}}</h5></td></tr>
+
+				</table>
+			</div>
+			{% if 'username' in session %}
+			<div class="panel-footer" style="border-radius:0px;background-color:#4dd2ff">
+					<button type="button" class="btn btn-info"style="background-color:green"><a href="{{ url_for('editPenDrive',pdccid=pdpdcc.id,pdpdname=tbe.name) }}"style="text-decoration: none;color:white;">EDIT</a></button>
+					<button type="button" class="btn btn-danger" style="background-color:red"><a href="{{ url_for('deletePenDrive',pdccid=pdpdcc.id,pdpdname=tbe.name)}}"style="text-decoration: none;color:white;">DELETE</a></button>
+			</div>
+			{% endif %}	
+			
+		</div>
+	</div>
+{% endfor %}
+</div>
+{% endblock content %}
+</div>

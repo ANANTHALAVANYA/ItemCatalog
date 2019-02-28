@@ -1,0 +1,54 @@
+{% include 'nav.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="main">
+{% block content %}
+  <!-- {% for tb in pendrives %}
+    <a href="{{ url_for('showPenDrives',pdccid=tb.id)}}">{{tb.name}}</a><br>
+    {% endfor %} -->
+    {% with messages = get_flashed_messages() %}
+	    {% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	    {% endif %}
+	{% endwith %}
+
+	<!--<div class="text-center">
+		<!-- <h1>Welcome to PenDrivestore</h1> --
+		<img style="width: 750px; height: 400px; margin: 0; padding: 0; margin-top: 50px" src="https://gaadiwaadi.com/wp-content/uploads/2018/07/Haley-Announces-Huge-Plans-for-India-250-500-CC-Bikes-Arriving-2.jpg">
+	</div>-->
+	<div class="w3-content w3-section" style="max-width:500px">
+
+  <img class="mySlides w3-animate-fading" src="https://rukminim1.flixcart.com/image/704/704/pendrive/7/z/g/sandisk-cruzer-blade-16-gb-original-imad4dyumyqy3b4y.jpeg?q=70" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="https://rukminim1.flixcart.com/image/612/612/pendrive/utility-pendrive/w/j/e/sony-usm32gr-b2-in-31301912-original-imaeksnuhb4ytpp8.jpeg?q=70" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="https://n1.sdlcdn.com/imgs/b/y/i/HP-V150W-32-GB-Pen-SDL866808559-1-83b04.jpg" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="http://www.allwhitebackground.com/images/1/Pen-Drive.jpg" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="https://images-na.ssl-images-amazon.com/images/I/31j6psn%2B1RL._SX425_.jpg" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px"></div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "inline-block";  
+  setTimeout(carousel, 3000);    
+}
+</script>
+
+
+    
+{% endblock content %}
+</div>

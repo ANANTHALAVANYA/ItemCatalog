@@ -1,0 +1,80 @@
+
+
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+
+<div class="">
+		<div class="mr-sm-2 mb-2 col-sm-8" style="margin: 10px;">
+			<form action="{{ url_for('addPenDriveDetails',cppname=cppname)}}" method="POST">
+				<div class="panel panel-primary">
+				  <div class="panel-heading bg-success">Add Pendrive Details</div>
+				  <div class="panel-body">
+				  	
+					  <div class="form-group">
+					  	<label class="text-primary" for="name">Enter pendrive Name:
+						</label>
+					    <input type="name" class="form-control" name="name" 
+						placeholder="Enter pendrive Name:" pattern="[A-Za-z ]{1,}" 
+						title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="drivesnumber">Enter no. of
+						drives:</label>
+					    <input type="text" class="form-control" name="drives_number" 
+						placeholder="Enter no.of drives:" 
+						pattern="[A-Za-z0-9 ]{1,}" 
+						title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="color">Enter pendrive capacity
+						:</label>
+					    <input type="text" class="form-control" name="item_capacity" 
+						placeholder="Enter pendrive capacity:" 
+						pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters 
+						and numbers only " required>
+					  </div>
+					  <div class="text-primary" class="form-group">
+					  	<label for="cc">Enter drive name:</label>
+					    <input type="text" class="form-control" name="drive_name" 
+						placeholder="Enter drive name:" pattern="[A-Za-z0-9 ]{1,}" 
+						title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="price">Enter Pendrive color
+						</label>
+					    <input type="text" class="form-control" name="item_color" 
+						placeholder="Enter PENDRIVE COLOR:" pattern="[A-Za-z0-9 ]{1,}" 
+						title="Allow numbers Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="pdtype">
+						Enter transfer speed:</label>
+					    <input type="text" class="form-control" name="transferspeed"
+						placeholder="Enter transfer speed of pendrive:" pattern="[A-Za-z0-9 ]{1,}" 
+						title="Allow numbers Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="pdtype">
+						Enter pendrive cost:</label>
+					    <input type="text" class="form-control" name="item_cost"
+						placeholder="Enter pendrive cost:" pattern="[A-Za-z0-9 ]{1,}" 
+						title="Allow numbers Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="pdtype">
+						Enter pendrive warranty:</label>
+					    <input type="text" class="form-control" name="warranty"
+						placeholder="Enter pendrive warranty:" pattern="[A-Za-z0-9 ]{1,}" 
+						title="Allow numbers Only" required>
+					  </div>
+					  <div class="form-group">
+					    <input type="text" class="form-control " name="pendrivecompanyid" value="{{ cppname }}" readonly>
+					  </div>
+				  </div> 
+				  <div class="panel-footer text-center"><input type="supdcmit" class="btn btn-primary" value="Supdcmit"></div>
+				</div>
+				</form>
+			</div>
+</div>
+{% endblock content %}

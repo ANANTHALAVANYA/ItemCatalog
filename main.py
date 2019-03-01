@@ -28,8 +28,6 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 # Create anti-forgery state token
 pendrives = session.query(PenDrivesCompanyName).all()
-
-
 # login
 @app.route('/login')
 def showLogin():
@@ -64,7 +62,7 @@ def gconnect():
         response.headers['Content-Type'] = 'application/json'
         return response
 
-    # Check that the access token is valid.
+   # Check that the access token is valid.
     access_token = credentials.access_token
     url = ('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=%s'
            % access_token)
@@ -76,7 +74,7 @@ def gconnect():
         response.headers['Content-Type'] = 'application/json'
         return response
 
-    # Verify that the access token is used for the intended user.
+    #Verify that the access token is used for the intended user.
     gplus_id = credentials.id_token['sub']
     if result['user_id'] != gplus_id:
         response = make_response(
